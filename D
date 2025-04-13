@@ -1,0 +1,65 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+#define ll long long int
+#define un unsigned long long
+#define all(v) v.begin(), v.end()
+#define pb push_back
+#define endl "\n"
+
+const ll M = 1e9 + 7;
+
+void usool()
+{
+   string action,sound; 
+   cin>>action>>sound;
+   
+   ll i=0,j=0,n = action.length(), m = sound.length();
+   
+   while(i<n && j<m && action[i]==sound[j]){
+       
+       ll tmp = i;
+       while(tmp<n && action[tmp]==action[i]){
+           tmp++;
+       }
+       ll lenofact = tmp-i;
+       
+       ll tmp2 = j;
+       while(tmp2<m && sound[j]==sound[tmp2]){
+           tmp2++;
+       }
+       
+       ll lenofsnd = tmp2-j;
+       
+       if(lenofsnd>=lenofact && lenofsnd<=2*lenofact){
+           i=tmp;
+           j=tmp2;
+       }
+       else{
+           cout<<"NO"<<endl;
+           return;
+       }
+       
+   }
+   if(i>=n && j>=m){
+       cout<<"YES"<<endl;
+   }
+   else
+    cout<<"NO"<<endl;
+
+}
+int main()
+{
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    // freopen("input.txt", "r", stdin);
+    // freopen("output.txt", "w", stdout);
+
+    int t = 1;
+    cin >> t;
+    for (int i = 1; i <= t; ++i)
+    {
+        usool();
+    }
+    return 0;
+}
